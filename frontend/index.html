@@ -41,13 +41,30 @@
     <main class="container" id="app">
       <div class="row row-cols-3 w-75 mx-auto justify-content-center g-4 py-4">
         <div v-for="(card, index) in discList" key="index" class="col">
-          <div class="card px-2 py-2" style="width: 12rem">
+          <div
+            @click="onlyThis(card)"
+            class="card px-2 py-2"
+            style="width: 12rem"
+          >
             <img :src="card.poster" class="card-img-top" />
             <div class="text-center text-light mt-3">
               <h6 class="card-title">{{card.title}}</h6>
               <p class="card-text">{{card.author}}</p>
               <p class="fw-bold">{{card.year}}</p>
             </div>
+          </div>
+        </div>
+      </div>
+      <div
+        v-if="show"
+        class="show_disc d-flex justify-content-center align-items-center"
+      >
+        <div class="card px-2 py-2" style="width: 20rem">
+          <img :src="bigCard.poster" class="card-img-top" />
+          <div class="text-center text-light mt-3">
+            <h6 class="card-title">{{bigCard.title}}</h6>
+            <p class="card-text">{{bigCard.author}}</p>
+            <p class="fw-bold">{{bigCard.year}}</p>
           </div>
         </div>
       </div>
