@@ -38,7 +38,7 @@
     <header class="container ps-5">
       <i class="fa-brands fa-spotify fa-2xl" style="color: #18d860"></i>
     </header>
-    <main class="container" id="app">
+    <main @click="closeButton()" tabindex="0" class="container" id="app">
       <div class="row row-cols-3 w-75 mx-auto justify-content-center g-4 py-4">
         <div v-for="(card, index) in discList" key="index" class="col">
           <div
@@ -59,11 +59,19 @@
         v-if="show"
         class="show_disc d-flex justify-content-center align-items-center"
       >
+        <div
+          @click="closeButton()"
+          class="close_button fw-bold fs-1 text-light"
+        >
+          X
+        </div>
+
         <div class="card px-2 py-2" style="width: 20rem">
           <img :src="bigCard.poster" class="card-img-top" />
           <div class="text-center text-light mt-3">
             <h6 class="card-title">{{bigCard.title}}</h6>
             <p class="card-text">{{bigCard.author}}</p>
+
             <p class="fw-bold">{{bigCard.year}}</p>
           </div>
         </div>

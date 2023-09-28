@@ -23,6 +23,12 @@ createApp({
       this.bigCard.author = newCard.author;
       this.bigCard.year = newCard.year;
     },
+
+    closeButton() {
+      console.log("ciao");
+      this.show = false;
+      console.log(this.show);
+    },
   },
 
   mounted() {
