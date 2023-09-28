@@ -5,19 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- JE & VUE 3 -->
-    <link rel="stylesheet" href="" />
+
     <script src="./main.js" defer></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <!-- bootstrap -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
-    ></script>
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- fontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <title>Document</title>
   </head>
   <body>
-    <div class="container" id="app">{{ciao}}</div>
+    <header class="container ps-5">
+      <i class="fa-brands fa-spotify fa-2xl" style="color: #18d860"></i>
+    </header>
+    <main class="container" id="app">
+      <div class="row row-cols-3 w-75 mx-auto justify-content-center g-4 py-4">
+        <div v-for="(card, index) in discList" key="index" class="col">
+          <div class="card px-2 py-2" style="width: 12rem">
+            <img :src="card.poster" class="card-img-top" />
+            <div class="text-center text-light mt-3">
+              <h6 class="card-title">{{card.title}}</h6>
+              <p class="card-text">{{card.author}}</p>
+              <p class="fw-bold">{{card.year}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
   </body>
 </html>
